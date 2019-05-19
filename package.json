@@ -8,7 +8,10 @@
     },
     "author": "",
     "license": "ISC",
-    "dependencies": {
-        "bluebird": "^3.5.4"
+    "dependencies": {},
+    "devDependencies": {
+        "aws-sdk": "^2.458.0",
+        "co": "^4.6.0",
+        "serverless-pseudo-parameters": "^2.4.0"
     }
 }
