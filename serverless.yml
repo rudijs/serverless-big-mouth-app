@@ -21,6 +21,8 @@ functions:
       - http:
           path: /
           method: get
+    environment:
+      restaurants_api: https://838rtq1ybk.execute-api.ap-southeast-1.amazonaws.com/dev/restaurants
 
   get-restaurants:
     handler: functions/get-restaurants.handler
@@ -35,6 +37,7 @@ resources:
   Resources:
     restaurantsTable:
       Type: AWS::DynamoDB::Table
+      # DeletionPolicy: Retain
       Properties:
         TableName: restaurants
         AttributeDefinitions:
