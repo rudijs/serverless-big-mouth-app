@@ -22,7 +22,7 @@ functions:
           path: /
           method: get
     environment:
-      restaurants_api: https://838rtq1ybk.execute-api.ap-southeast-1.amazonaws.com/dev/restaurants
+      restaurants_api: https://y781cl3qii.execute-api.ap-southeast-1.amazonaws.com/dev/restaurants
 
   get-restaurants:
     handler: functions/get-restaurants.handler
