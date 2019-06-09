@@ -13,6 +13,10 @@ provider:
       Action:
         - "dynamodb:Scan"
       Resource: arn:aws:dynamodb:#{AWS::Region}:#{AWS::AccountId}:table/restaurants
+    - Effect: Allow
+      Action: execute-api:Invoke
+      # Resource: arn:aws:execute-api:{region}:{account-id}:{api-id}/{stage}/{method}/{resource}
+      Resource: arn:aws:execute-api:#{AWS::Region}:#{AWS::AccountId}:*/*/GET/restaurants
 
 functions:
   get-index:
@@ -22,7 +26,7 @@ functions:
           path: /
           method: get
     environment:
-      restaurants_api: https://y781cl3qii.execute-api.ap-southeast-1.amazonaws.com/dev/restaurants
+      restaurants_api: https://0x5fmb5jw6.execute-api.ap-southeast-1.amazonaws.com/dev/restaurants
 
   get-restaurants:
     handler: functions/get-restaurants.handler
@@ -30,6 +34,7 @@ functions:
       - http:
           path: /restaurants
           method: get
+          authorizer: aws_iam
     environment:
       restaurants_table: restaurants
 
